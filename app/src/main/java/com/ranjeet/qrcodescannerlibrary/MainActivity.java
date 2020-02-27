@@ -9,22 +9,20 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ranjeet.qrcodescanner.QrCodeActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_QR_SCAN = 101;
-    private final String LOGTAG = "QRCScanner-MainActivity";
-    private Button button;
     private TextView txtExcellent, txtMedium, txtPoor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = findViewById(R.id.button_start_scan);
+        ImageView imgQrCode = findViewById(R.id.imgQrCode);
 
         txtExcellent = findViewById(R.id.txtExcellent);
         txtMedium = findViewById(R.id.txtMedium);
@@ -37,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         txtPoor.setText("Poor\n"+SharedPrefUtils.getIntData(this, "Poor"));
 
-        button.setOnClickListener(new View.OnClickListener() {
+        imgQrCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Start the qr scan activity
@@ -52,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (resultCode != Activity.RESULT_OK) {
+            String LOGTAG = "QRCScanner-MainActivity";
             Log.d(LOGTAG, "COULD NOT GET A GOOD RESULT.");
             if (data == null)
                 return;

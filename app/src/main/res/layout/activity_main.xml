@@ -9,41 +9,63 @@
 
     <TextView
         android:id="@+id/txtExcellent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/circle_shape_green"
         android:gravity="center"
+        android:lineSpacingMultiplier="1.0"
+        android:text="@string/excellent"
+        android:textColor="@color/qr_code_white"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtMedium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/circle_shape_yellow"
         android:gravity="center"
-        android:text="@string/app_name"
+        android:lineSpacingMultiplier="1.0"
+        android:text="@string/medium"
+        android:textColor="@color/qr_code_white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtPoor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/circle_shape_red"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/button_start_scan"
+        android:lineSpacingMultiplier="1.0"
+        android:text="@string/poor"
+        android:textColor="@color/qr_code_white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imgQrCode"
         app:layout_constraintEnd_toEndOf="@+id/txtMedium"
         app:layout_constraintStart_toStartOf="@+id/txtExcellent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_start_scan"
+    <ImageView
+        android:id="@+id/imgQrCode"
         android:layout_width="wrap_content"
+        android:src="@drawable/qr_code"
         android:layout_height="wrap_content"
-        android:text="Click to scan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click on Qr icon for start scan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgQrCode"
+        app:layout_constraintStart_toStartOf="@+id/imgQrCode"
+        app:layout_constraintTop_toBottomOf="@+id/imgQrCode"
+        app:layout_constraintVertical_bias="0.10" />
 
 </android.support.constraint.ConstraintLayout>
